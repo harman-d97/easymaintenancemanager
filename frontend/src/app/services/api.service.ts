@@ -10,7 +10,7 @@ declare var $: any;
 })
 export class ApiService {
 
-  baseUrl = 'http://localhost:4000/'
+  baseUrl = 'https://easymaintenancemanager.herokuapp.com/'
 
   constructor(private _http: HttpClient) { }
 
