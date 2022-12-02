@@ -3,11 +3,10 @@ const router = express.Router();
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Hrprt97!',
-    database: 'goldenboyfoods',
-    port: 3306
+    host: 'us-cdbr-east-06.cleardb.net/',
+    user: 'b6b826afdc15cd',
+    password: '7848ad71',
+    database: 'heroku_bde77d66de50ef9',
 });
 
 router.get('/get-all-reports', async function (req, res) {
