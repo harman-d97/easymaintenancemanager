@@ -1,0 +1,31 @@
+<div id="businessSignUpDiv">
+    <h1 class="text-center pt-5">Business Sign Up</h1>
+    <form>
+        <div class="form-group">
+            <label for="businessName">Business Name</label>
+            <input type="text" class="form-control mb-3" id="businessName">
+        </div>
+        <div class="form-group">
+            <label for="numberOfEmployees">Number of Employees</label>
+            <input type="number" class="form-control mb-3" id="numberOfEmployees">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control mb-3" id="email">
+        </div>
+        <div class="form-group">
+            <label for="paymentFrequency">Payment Frequency</label>
+            <fieldset>
+                <input type="radio" name="paymentFrequency" value="monthly"> Monthly<br>
+                <input type="radio" name="paymentFrequency" value="yearly"> Yearly<br>
+            </fieldset>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Sign-up</button>
+        </div>
+    </form>
+    <p class="text-center">
+        Once the admin account is setup, you will recieve an email with the admin<br>
+        login and a 6 digit code the employees will enter when creating an account
+    </p>
+</div>

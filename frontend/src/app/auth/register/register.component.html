@@ -1,0 +1,41 @@
+<div id="registerDiv">
+    <h1 class="text-center pt-5">Sign up</h1>
+    <form #registerForm = "ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control mb-3" name="username" id="username" required="" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control mb-3" name="password" id="password" required="" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control mb-3" id="confirmPassword" required>
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control mb-3" name="firstName" id="firstName" required="" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control mb-3" name="lastName" id="lastName" required="" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="employeeId">Employee Id</label>
+            <input type="text" class="form-control mb-3" name="employeeId" id="employeeId" required="" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="6DigitCode">6 Digit Code</label>
+            <input type="text" class="form-control mb-3" name="sixDigitCode" id="sixDigitCode" required="" ngModel>
+        </div>
+        <div class="text-center pt-3">
+            <input type="submit" value="Register" class="btn btn-primary text-center" id="registerButton">
+        </div>
+    </form>
+    <div class="text-center">
+        <p>
+            For employers or organizations go to the <a routerLink="/pricing">pricing page</a> to sign up.
+        </p>
+    </div>
+</div>

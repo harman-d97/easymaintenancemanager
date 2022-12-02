@@ -1,0 +1,15 @@
+<div id="allTasksDiv">
+    <div class="pt-5">
+        <h1 class="ps-3">All Tasks</h1>
+        <div class="text-end" *ngIf="this.isAdmin">
+            <button type="button" class="btn btn-primary me-3" id="employeeSchedules" (click)="navigateToAllEmployeeSchedules()">Employee Schedules</button>
+            <button type="button" class="btn btn-primary me-3" id="newEquipment" (click)="navigateToCreateNewEquipment()">Add New Equipment</button>
+            <button type="button" class="btn btn-primary me-5" id="newTask" (click)="navigateToCreateNewTask()">Add New Task</button>
+        </div>
+
+        <div class="text-end" *ngIf="!this.isAdmin">
+            <button type="button" class="btn btn-primary me-5" id="employeeSchedules" (click)="navigateToEmployeeSchedule()">Employee Schedule</button>
+        </div>
+    </div>
+    <div id="tasks" class="mx-5 my-3" *ngIf="this.isLogin"></div>
+</div>

@@ -1,0 +1,39 @@
+<div id="editTaskDiv">
+    <h1 class="text-center pt-5">Edit Task</h1>
+    <form #editTaskForm = "ngForm" (ngSubmit)="onSubmit(editTaskForm)">
+        <div class="form-group">
+            <label for="description">Task Description</label>
+            <textarea class="form-control mb-3" id="description" rows="3" name="description" [ngModel]="taskDescription"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="assignedTo">Assigned To</label>
+            <select class="form-control mb-3" id="assignedTo" name="assignedTo" (change)="employeeChange($event.target)" [ngModel]="taskAssignedTo">
+                <option value="">Select an employee</option>
+                <option *ngFor="let employee of employees" [value]="employee.employeeId">{{employee.firstname}} {{employee.lastname}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="repeatAfter">Repeat After (days)</label>
+            <input type="number" class="form-control mb-3" id="repeatAfter" name="repeatAfter" [ngModel]="taskRepeatAfter">
+        </div>
+        <div class="form-group">
+            <label for="equipmentName">Equipment Name</label>
+            <input type="text" class="form-control mb-3" id="equipmentName" name="equipmentName" disabled="true" [ngModel]="taskEquipmentName">
+        </div>
+        <div class="form-group">
+            <label for="equipmentNumber">Equipment Number</label>
+            <input type="text" class="form-control mb-3" id="equipmentNumber" name="equipmentNumber" disabled="true" [ngModel]="taskEquipmentNumber">
+        </div>
+        <div class="form-group">
+            <label for="sechduleFor">Schedule For</label>
+            <input type="date" class="form-control mb-3" id="sechduleFor" name="scheduleFor" [ngModel]="taskDate">
+        </div>
+        <div class="form-group">
+            <label for="estCompletionTime">Estimated Completion Time (minutes)</label>
+            <input type="number" class="form-control mb-3" id="estCompletionTime" name="estCompletionTime" [ngModel]="taskEstCompletionTime">
+        </div>
+        <div class="text-center py-3">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,47 @@
+<div id="reportsDiv" *ngIf="isLogin">
+    <h1 class="text-center pt-5">Reports</h1>
+    <br>
+    <h4 class="ps-5">Employee Changes Log</h4>
+    <div>
+        <div class="text-end">
+            <button type="button" class="btn btn-primary me-5" (click)="showFiltersForm()">Filters</button>
+        </div>
+        <div id="filters" *ngIf="this.showForm">
+            <form #filtersForm = "ngForm" (ngSubmit)="onSubmit(filtersForm)">
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control mb-2" id="startDate" name="startDate" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" class="form-control mb-5" id="endDate" name="endDate" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="employeeName">Employee Name</label>
+                    <input type="text" class="form-control" id="employeeName" name="employeeName" ngModel>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3" id="filter">Apply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="reports" class="mx-5 my-3" *ngIf="this.noFilters">
+        <div class="card mb-3" *ngFor="let report of reports">
+            <div class="card-body">
+                <p>Employee Name: {{report.employeeName}}</p>
+                <p>Task performed {{report.changeDescription}}</p>
+                <p>Date: {{report.date}}</p>
+            </div>
+        </div>
+    </div> 
+    <div id="reports" class="mx-5 my-3" *ngIf="this.withFilters">
+        <div class="card mb-3" *ngFor="let report of reports">
+            <div class="card-body">
+                <p>Employee Name: {{report.employeeName}}</p>
+                <p>Task performed {{report.changeDescription}}</p>
+                <p>Date: {{report.date}}</p>
+            </div>
+        </div>
+    </div> 
+</div>

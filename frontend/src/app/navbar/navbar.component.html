@@ -1,0 +1,55 @@
+<div class="px-5" id="navDiv">
+    <nav class="navbar navbar-expand-sm navbar-light" *ngIf="!this.isLogin">
+        <img src="assets/images/logo.png" alt="logo" class="navbar-brand" (click)="navigateToHome()">
+        <h3>Easy Maintenance Manager</h3>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToHome()" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToPricing()" class="nav-link">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToLogin()" class="nav-link me-5">Log In</a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="navbar navbar-expand-sm navbar-light" *ngIf="(this.isLogin && !this.isAdmin)">
+        <img src="assets/images/logo.png" alt="logo" class="navbar-brand" (click)="navigateToHomepageLoggedIn()" >
+        <h3>Easy Maintenance Manager</h3>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToAllTasks()" class="nav-link">All Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToMessenger()" class="nav-link">Messenger</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="logout()" class="nav-link me-5">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="navbar navbar-expand-sm navbar-light" *ngIf="(this.isLogin && this.isAdmin)">
+        <img src="assets/images/logo.png" alt="logo" class="navbar-brand" (click)="navigateToHomepageLoggedIn()" >
+        <h3>Easy Maintenance Manager</h3>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToManageEmployees()" class="nav-link">Employees</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToReports()" class="nav-link">Reports</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToAllTasks()" class="nav-link">All Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="navigateToMessenger()" class="nav-link">Messenger</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" (click)="logout()" class="nav-link me-5">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+</div>

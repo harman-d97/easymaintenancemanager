@@ -1,0 +1,20 @@
+<div>
+    <div id="loginDiv" *ngIf="!this.isLogin">
+        <h1 class="text-center pt-5">Log In</h1>
+        <form #loginform = "ngForm" (ngSubmit)="onSubmit(loginform)">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control mb-3" name="username" id="username" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control mb-3" name="password" id="password" ngModel>
+            </div>
+            <p><a href="#">Forgot Password?</a></p>
+            <div class="text-center pt-3">
+                <button type="submit" class="btn btn-primary" value="login"  id="loginButton">Log In</button><br>
+                <button type="button" class="btn btn-primary mt-3" (click)="navigateToRegister()" id="registerButton">Register</button>
+            </div>
+        </form>
+    </div>
+</div>

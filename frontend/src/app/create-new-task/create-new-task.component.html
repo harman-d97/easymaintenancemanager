@@ -1,0 +1,42 @@
+<div id="createNewTaskDiv">
+    <h1 class="text-center pt-5">Create new Task</h1>
+    <form #newTaskForm = "ngForm" (ngSubmit)="onSubmit(newTaskForm)">
+        <div class="form-group">
+            <label for="description">Task Description</label>
+            <textarea class="form-control mb-3" id="description" rows="3" name="description" ngModel></textarea>
+        </div>
+        <div class="form-group">
+            <label for="assignedTo">Assigned To</label>
+            <select class="form-control mb-3" id="assignedTo" name="assignedTo" (change)="employeeChange($event.target)" ngModel>
+                <option value="">Select an employee</option>
+                <option *ngFor="let employee of employees" [value]="employee.employeeId">{{employee.firstname}} {{employee.lastname}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="repeatAfter">Repeat After (days)</label>
+            <input type="number" class="form-control mb-3" id="repeatAfter" name="repeatAfter" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="equipmentName">Equipment Name</label>
+            <select class="form-control mb-3" id="equipmentName" name="equipmentName" (change)="showEquipmentNumber($event.target)" ngModel>
+                <option value="">Select an equipment</option>
+                <option *ngFor="let equipment of equipments" >{{equipment.equipmentName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="equipmentNumber">Equipment Number</label>
+            <input type="text" class="form-control mb-3" id="equipmentNumber" name="equipmentNumber" [ngModel]="equipmentNum">
+        </div>
+        <div class="form-group">
+            <label for="sechduleFor">Schedule For</label>
+            <input type="date" class="form-control mb-3" id="sechduleFor" name="scheduleFor" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="estCompletionTime">Estimated Completion Time (minutes)</label>
+            <input type="number" class="form-control mb-3" id="estCompletionTime" name="estCompletionTime" ngModel>
+        </div>
+        <div class="text-center py-3">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>

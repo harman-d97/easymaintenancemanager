@@ -1,0 +1,9 @@
+<div id="employeeScheduleDiv">
+    <h1 class="text-center pt-5">Your Schedule</h1>
+    <br>
+    <label for="date" class="ms-5 mb-3">Date:</label>
+    <div class="mx-5">
+        <input type="date" id="date" name="date" class="form-control" (change)="getSchedule($event.target)">
+    </div>
+    <div id="schedule"></div>
+</div>

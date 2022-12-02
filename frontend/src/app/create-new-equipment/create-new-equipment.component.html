@@ -1,0 +1,31 @@
+<div id="createNewEquipmentDiv" *ngIf="!this.isLogin">
+    <h1 class="text-center pt-5">Create New Equipment</h1>
+    <form #newEquipmentForm = "ngForm" (ngSubmit)="onSubmit(newEquipmentForm)">
+        <div class="form-group">
+            <label for="equipmentNumber">Equipment Number</label>
+            <input type="text" class="form-control mb-3" id="equipmentNumber" name="equipmentNumber" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="equipmentName">Equipment Name</label>
+            <input type="text" class="form-control mb-3" id="equipmentName" name="equipmentName" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="equipmentDescription">Equipment Description</label>
+            <textarea class="form-control mb-3" id="equipmentDescription" rows="3" name="equipmentDescription" ngModel></textarea>
+        </div>
+        <div class="form-group">
+            <label for="manufacturer">Manufacturer</label>
+            <input type="text" class="form-control mb-3" id="manufacturer" name="manufacturer" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="modelNumber">Model Nunber</label>
+            <input type="text" class="form-control mb-3" id="modelNumber" name="modelNumber" ngModel>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" id="createEquipment">Create</button>
+        </div>
+    </form>
+    <div id="feedbackForUser">
+        <p id="msg"></p>
+    </div>
+</div>

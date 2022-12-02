@@ -1,0 +1,16 @@
+<div id="allEmployeeSchedulesDiv">
+    <h1 class="text-center py-5">Schedules</h1>
+    <div id="inputs">
+        <label for="employeeName" class="mb-3">Employee Name</label>
+        <select #employeeChoosen id="employeeName" name="employeeName" class="form-control mb-3" (change)="getSchedule(dateChoosen, employeeChoosen)">
+            <option value="">Select an Employee</option>
+            <option *ngFor="let employee of employees" [value]="employee.employeeId">{{employee.firstname}} {{employee.lastname}}</option>
+        </select>
+        <label for="date" class="mb-3">Date:</label>
+        <input #dateChoosen type="date" id="date" name="date" class="form-control mb-3" (change)="getSchedule(dateChoosen, employeeChoosen)">
+    </div>
+  
+    <div id="schedules">
+        
+    </div>
+</div>
