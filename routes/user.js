@@ -63,7 +63,12 @@ router.post('/login', async function (req, res) {
 
         const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
         pool.getConnection(function(err, connection) {
+            if (err) {
+                connection.release();
+                throw err;
+            }
             connection.query(sql, [username, hashedPassword], function(err, result, fields) {
+                connection.release();
                 if (err || result.length == 0) {
                     res.send({status: 0, data: err});
                 } else {
