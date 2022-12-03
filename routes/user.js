@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken');
 
 const mysql = require('mysql');
 
-const pool = mysql.createPool({
-    host: 'us-cdbr-east-06.cleardb.net/',
+const connection = mysql.createConnection({
+    host: 'us-cdbr-east-06.cleardb.net',
     user: 'b6b826afdc15cd',
     password: '7848ad71',
     database: 'heroku_bde77d66de50ef9',
@@ -62,21 +62,16 @@ router.post('/login', async function (req, res) {
         const hashedPassword = md5(password.toString());
 
         const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
-        pool.getConnection(function(err, connection) {
-            if (err) {
-                connection.release();
-                throw err;
+        connection.query(sql, [username, hashedPassword], function(err, result, fields) {
+            connection.release();
+            if (err || result.length == 0) {
+                res.send({status: 0, data: err});
+            } else {
+                let token = jwt.sign({ data: result }, 'secret');
+                res.send({ status: 1, data: result, token: token });
             }
-            connection.query(sql, [username, hashedPassword], function(err, result, fields) {
-                connection.release();
-                if (err || result.length == 0) {
-                    res.send({status: 0, data: err});
-                } else {
-                    let token = jwt.sign({ data: result }, 'secret');
-                    res.send({ status: 1, data: result, token: token });
-                }
-            });
         });
+
     } catch (error) {
         res.send({status: 0, data: error});
     }
