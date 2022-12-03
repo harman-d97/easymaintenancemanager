@@ -1,6 +1,6 @@
-<div id="createNewEquipmentDiv" *ngIf="this.isLogin">
+<div id="createNewEquipmentDiv">
     <h1 class="text-center pt-5">Create New Equipment</h1>
-    <form #newEquipmentForm = "ngForm" (ngSubmit)="onSubmit(newEquipmentForm)">
+    <form #newEquipmentForm = "ngForm" *ngIf="this.isLogin" (ngSubmit)="onSubmit(newEquipmentForm)">
         <div class="form-group">
             <label for="equipmentNumber">Equipment Number</label>
             <input type="text" class="form-control mb-3" id="equipmentNumber" name="equipmentNumber" ngModel>
