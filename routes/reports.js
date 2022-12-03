@@ -3,7 +3,7 @@ const router = express.Router();
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'us-cdbr-east-06.cleardb.net/',
+    host: 'us-cdbr-east-06.cleardb.net',
     user: 'b6b826afdc15cd',
     password: '7848ad71',
     database: 'heroku_bde77d66de50ef9',
