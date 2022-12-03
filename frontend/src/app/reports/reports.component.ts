@@ -58,18 +58,6 @@ export class ReportsComponent implements OnInit {
                 let modifiedDate = date.toString().replace('T', ' ');
                 let finalDate = modifiedDate.toString().replace('.000Z', ' ');
                 this.reports.push({employeeName: employeeName, changeDescription: changeDescription, date: finalDate});
-
-                // let html = `
-                //   <div class="card mb-3">
-                //     <div class="card-body">
-                //       <p>Employee Name: ${employeeName}</p>
-                //       <p>Task performed: ${changeDescription}</p>
-                //       <p>Date: ${finalDate}</p>
-                //     </div>
-                //   </div>`;
-                // $('#reports').append(html);
-                // $('.card').css('background-color', '#3b5249');
-                // $('.card').css('color', 'white');
               }
             });
           }
@@ -90,7 +78,7 @@ export class ReportsComponent implements OnInit {
     let startDate = form.value.startDate;
     let endDate = form.value.endDate;
 
-    if ( (startDate.length > 0 && endDate == '') || (startDate == '' && endDate.length > 0) &&  employeeName.length == 0) {
+    if ( ((startDate.length > 0 && endDate == '') || (startDate == '' && endDate.length > 0)) &&  employeeName.length == 0) {
       alert('Please enter both a start and end date');
     } else {
       for (let i = 0; i < this.reportsWithFilters.length; i++) {
@@ -107,7 +95,7 @@ export class ReportsComponent implements OnInit {
     if (employeeName.length > 0 && startDate.length == 0 && endDate.length == 0) {
       for (let i = 0; i < this.reportsWithFilters.length; i++) {
         let employee = this.reportsWithFilters[i].employeeName;
-        if (!employee.includes(employeeName)) {
+        if (!employee.toLowerCase().includes(employeeName.toLowerCase())) {
           this.reportsWithFilters.splice(i, 1);
         }
       }
@@ -119,7 +107,7 @@ export class ReportsComponent implements OnInit {
         let employee = this.reportsWithFilters[i].employeeName;
         let date = this.reportsWithFilters[i].date;
         let formattedDate = date.slice(0, 10);
-        if (!employee.includes(employeeName) && (formattedDate < startDate || formattedDate > endDate)) {
+        if (!employee.toLowerCase().includes(employeeName.toLowerCase()) && (formattedDate < startDate || formattedDate > endDate)) {
           this.reportsWithFilters.splice(i, 1);
         }
       }
